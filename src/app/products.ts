@@ -1,5 +1,6 @@
 export const products = [
   {
+    coverImage: './assets/img/phone-cover.jpg',
     name: 'Phone XL',
     price: 799,
     description: 'A large phone with one of the best screens',
@@ -9,6 +10,7 @@ export const products = [
 
   },
   {
+    coverImage: 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
     name: 'Phone Mini',
     price: 699,
     description: 'A great phone with one of the best cameras',
@@ -20,6 +22,7 @@ export const products = [
     headingtext3: 'サンプルテキスト3 サンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入ります',
   },
   {
+    coverImage: './assets/img/phone-cover.jpg',
     name: 'Phone Standard',
     price: 299,
     description: '',
@@ -31,6 +34,7 @@ export const products = [
     headingtext3: 'サンプルテキスト3 サンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入ります',
   },
   {
+    coverImage: './assets/img/phone-cover.jpg',
     name: 'Phone Special',
     price: 999,
     description: '',
