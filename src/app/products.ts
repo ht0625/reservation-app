@@ -7,7 +7,9 @@ export const products = [
     heading1: 'テストheading1',
     heading2: 'テストheading2',
     heading3: 'テストheading3',
-
+    headingtext1: 'サンプルテキスト1 サンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入ります',
+    headingtext2: 'サンプルテキスト2 サンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入ります',
+    headingtext3: 'サンプルテキスト3 サンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入りますサンプルテキストが入ります',
   },
   {
     coverImage: './assets/img/phone-cover.jpg',
