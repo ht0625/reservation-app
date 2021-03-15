@@ -72,7 +72,10 @@
         }
     }
 }
-
+.card-img-top {
+  border-top-left-radius: $border-radius-extreme;
+  border-top-right-radius: $border-radius-extreme;
+}
 .card-profile{
     margin-top: 30px;
     text-align: center;
