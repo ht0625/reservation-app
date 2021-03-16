@@ -17,7 +17,7 @@
                                   <i class="fa fa-twitter"></i>
                               </a>
                           </div>
-                          <form class="register-form">
+                          <form class="register-form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
                               <label>Eメール</label>
                               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                                 <div class="input-group-prepend">
@@ -26,7 +26,15 @@
                                   </span>
                                 </div>
 
-                                  <input type="text" class="form-control" placeholder="Eメール" (focus)="focus=true" (blur)="focus=false" >
+                                  <input
+                                    ngModel
+                                    name="email"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Eメール"
+                                    (focus)="focus=true"
+                                    (blur)="focus=false"
+                                  >
                               </div>
 
                               <label>パスワード</label>
@@ -38,7 +46,7 @@
                                 </div>
                                   <input type="text" class="form-control" placeholder="パスワード" (focus)="focus1=true" (blur)="focus1=false" >
                               </div>
-                              <button class="btn btn-danger btn-block btn-round">登録</button>
+                              <button class="btn btn-danger btn-block btn-round" type="submit">登録</button>
                           </form>
                           <div class="forgot">
                               <a [routerLink]="['/login']" class="btn btn-link btn-danger">ログインはこちら</a>
