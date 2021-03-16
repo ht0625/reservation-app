@@ -8,13 +8,15 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './shared/auth.service';
 
 const routes: Routes = [
-  {
-    path: "auth", component: AuthComponent,
-    children: [
-      { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
-    ]
-  }
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
+  // {
+  //   path: "auth", component: AuthComponent,
+  //   children: [
+  //     { path: "login", component: LoginComponent },
+  //     { path: "register", component: RegisterComponent },
+  //   ]
+  // }
 ];
 
 
