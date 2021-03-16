@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const bcrypt = require('bcrypt')
 
 // const ObjectId = Schema.ObjectId;
 
@@ -23,5 +24,18 @@ const UserSchema = new Schema({
     max:[30, 'パスワードは最大30文字までです']
   },
 });
+
+UserSchema.pre('save',function(next){
+  const user = this
+  const saltRounds = 10
+
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(user.password, salt, function(err, hash) {
+        // Store hash in your password DB.
+        user.password = hash
+        next()
+    });
+});
+})
 
 module.exports = mongoose.model('User', UserSchema)
