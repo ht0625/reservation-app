@@ -18,7 +18,7 @@ router.post('/login', function(req, res){
       return res.status(422).send({errors: [{title: 'User error', detail: 'Something went wrong'}]})
     }
     if(!foundUser){
-      return res.status(422).send({errors: [{title: 'User error', detail: 'User already exist!'}]})
+      return res.status(422).send({errors: [{title: 'User error', detail: 'User is not exist!'}]})
     }
     if(!foundUser.hasSamePassword(password)){
       return res.status(422).send({errors: [{title: 'User error', detail: 'Incorrect password!'}]})
