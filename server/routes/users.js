@@ -1,19 +1,50 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../model/user')
+const jwt = require('jsonwebtoken');
+const config = require('../config/dev')
 
 
 router.post('/login', function(req, res){
+  const { email, password } = req.body
+  if(!email){
+    return res.status(422).send({errors: [{title: 'User error', detail: 'Prease fill email'}]})
+  }
+  if(!password){
+    return res.status(422).send({errors: [{title: 'User error', detail: 'Prease fill password'}]})
+  }
+  User.findOne({email},function(err, foundUser){
+    if(err){
+      return res.status(422).send({errors: [{title: 'User error', detail: 'Something went wrong'}]})
+    }
+    if(!foundUser){
+      return res.status(422).send({errors: [{title: 'User error', detail: 'User already exist!'}]})
+    }
+    if(!foundUser.hasSamePassword(password)){
+      return res.status(422).send({errors: [{title: 'User error', detail: 'Incorrect password!'}]})
+    }
+
+    const token = jwt.sign({
+      userId: foundUser.id,
+      username: foundUser.username
+    }, config.SECRET, { expiresIn: '1h' });
+
+    return res.json(token)
+  })
+
+
   // Product.find({},function(err, foundProducts){
   //   return res.json(foundProducts)
   // })
 })
 
 router.post('/register', function(req, res){
-  const username = req.body.username
-  const email = req.body.email
-  const password = req.body.password
-  const confilmPassword = req.body.confirmPassword
+  const { username, email, password, confilmPassword } = req.body
+
+  // const username = req.body.username
+  // const email = req.body.email
+  // const password = req.body.password
+  // const confilmPassword = req.body.confirmPassword
 
   if(!username){
     //error
