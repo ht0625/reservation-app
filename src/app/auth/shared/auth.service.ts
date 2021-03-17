@@ -43,4 +43,10 @@ export class AuthService{
       }
     ))
   }
+
+  logout(){
+    localStorage.removeItem('app-auth')
+    localStorage.removeItem('app-meta')
+    this.decodedToken = new DecodedToken()
+  }
 }
