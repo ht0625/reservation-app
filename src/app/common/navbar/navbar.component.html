@@ -35,7 +35,11 @@
 
       <div class="navbar-collapse" id="navbarToggler">
         <ng-container *ngIf="auth.isAuthenticated()">
-
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a (click)="logout()" [routerLink]="['/login']" class="nav-link"><i></i> ログアウト</a>
+            </li>
+          </ul>
         </ng-container>
         <ng-container *ngIf="!auth.isAuthenticated()">
           <ul class="navbar-nav ml-auto">
